@@ -1,19 +1,19 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: my-java-springboot
+  name: banking-portal-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: java-springboot-app
+      app: banking-portal-api
   template:
     metadata:
       labels:
-        app: java-springboot-app
+        app: banking-portal-api
     spec:
       containers:
-        - name: my-java-springboot
+        - name: banking-portal-api
           image: java-springboot-image:latest
           ports:
             - name: http
@@ -27,7 +27,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: my-java-springboot-svc
+  name: banking-portal-api
 spec:
   ports:
     - name: http-8081
